@@ -1,0 +1,17 @@
+.counter {
+    padding: 0.5em;
+}
+
+.counter__button {
+    border: none;
+    background-color: navy;
+    padding: 0.4em;
+    color: white;
+    font-size: 2em;
+    line-height: 2em;
+}
+
+.counter__count {
+    font-size: 2em;
+    padding: 1em;
+}
