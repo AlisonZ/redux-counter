@@ -1,16 +1,17 @@
 import React from 'react';
+import {Provider} from 'react-redux';
 import './App.css';
 import Counter from './Counter/Counter';
+
+import store from './Counter/store';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Counter
-          count={1}
-          onIncrement={() => console.log('increment')}
-          onDecrement={() => console.log('decrement')}
-        />
+        <Provider store={store}>
+          <Counter />
+        </Provider>
       </div>
     );
   }

@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import './Counter.css';
+import {increment, decrement} from './store';
 
-export default class Counter extends React.Component {
+export class Counter extends React.Component {
     static propTypes = {
         count: PropTypes.number.isRequired,
         onIncrement: PropTypes.func.isRequired,
@@ -22,3 +24,21 @@ export default class Counter extends React.Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        count: state,
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onIncrement: () => dispatch(increment()),
+        onDecrement: () => dispatch(decrement())
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Counter);
